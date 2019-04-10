@@ -1,5 +1,6 @@
 
 alias cdwork='cd /mnt/hgfs/work/api-site'
+alias cdapi='cd /mnt/hgfs/worK/party-api'
 alias sd='sudo su'
 alias svim='sudo vim'
 alias grep='grep --color'
