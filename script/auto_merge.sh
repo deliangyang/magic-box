@@ -3,7 +3,7 @@
 cd /mnt/hgfs/work/party-api
 
 ENV=$1
-CURRENT_BRANCH=`echo git branch | grep '*' | sed 's/* //g'`
+CURRENT_BRANCH=`git branch | grep '*' | sed 's/* //g'`
 echo 'current branch ' ${CURRENT_BRANCH}
 
 if [[ ${CURRENT_BRANCH} == 'dev' || ${CURRENT_BRANCH} == 'new-dev' ]]; then
@@ -12,23 +12,23 @@ if [[ ${CURRENT_BRANCH} == 'dev' || ${CURRENT_BRANCH} == 'new-dev' ]]; then
 fi
 
 if [[ ${ENV} == 'dev' ]]; then
-    echo git checkout dev
-    echo git pull
-    echo git merge ${CURRENT_BRANCH}
-    echo git push
-    echo git checkout test
-    echo git pull
-    echo git merge dev
-    echo git push
+    git checkout dev
+    git pull
+    git merge ${CURRENT_BRANCH}
+    git push
+    git checkout test
+    git pull
+    git merge dev
+    git push
 elif [[ ${ENV} == 'new-dev' ]]; then
-    echo git checkout dev-next
-    echo git pull
-    echo git merge ${CURRENT_BRANCH}
-    echo git push
-    echo git checout test-next
-    echo git pull
-    echo git merge dev-next
-    echo git push
+    git checkout dev-next
+    git pull
+    git merge ${CURRENT_BRANCH}
+    git push
+    git checout test-next
+    git pull
+    git merge dev-next
+    git push
 fi
 
 echo 'done'
