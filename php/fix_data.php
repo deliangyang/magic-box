@@ -7,7 +7,7 @@ function iterator_file() {
     $f = fopen($filename, 'r');
     while (!feof($f)) {
         $line = fgets($f);
-        yield$line;
+        yield $line;
     }
 }
 
