@@ -32,3 +32,12 @@ mkcd() {
 cp-ngx-conf() {
     ngx-conf && copy default.conf $1.conf
 }
+
+ssh-sowing() {
+    PUBLIC_KEY=`cat ~/.ssh/id_rsa.pub`
+    ssh $1 <<EOF
+mkdir -p ~/.ssh
+echo ${PUBLIC_KEY} >> ~/.ssh/authorized_keys
+chmod 644 ~/.ssh/authorized_keys
+EOF
+}
