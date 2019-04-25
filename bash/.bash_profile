@@ -41,3 +41,7 @@ echo ${PUBLIC_KEY} >> ~/.ssh/authorized_keys
 chmod 644 ~/.ssh/authorized_keys
 EOF
 }
+
+send-mail-test() {
+   /usr/bin/python /mnt/hgfs/fwork/auto-work/send-email-with-git.py $1
+}
