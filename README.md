@@ -10,3 +10,9 @@
 ```bash
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 97DB7443D5EDEB74
 ```
+
+### git commit standard
+
+```bash
+curl -sSL https://raw.githubusercontent.com/deliangyang/magic-box/master/bash/commit-standard.sh  -o .git/hooks/commit-msg
+```

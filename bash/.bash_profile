@@ -35,10 +35,20 @@ cp-ngx-conf() {
 
 ssh-sowing() {
     PUBLIC_KEY=`cat ~/.ssh/id_rsa.pub`
-    ssh $1 <<EOF
+    HOST_INFO=$1
+    ssh ${HOST_INFO} <<EOF
 mkdir -p ~/.ssh
 echo ${PUBLIC_KEY} >> ~/.ssh/authorized_keys
 chmod 644 ~/.ssh/authorized_keys
+exit
+EOF
+
+    USERNAME=$(echo ${HOST_INFO} | awk -F@ '{print $1}')
+    HOST=$(echo ${HOST_INFO} | awk -F@ '{print $2}')
+    cat >> ~/.ssh/config <<EOF
+HOST ${HOST_INFO}
+    HostName ${HOST}
+    User ${USERNAME}
 EOF
 }
 
