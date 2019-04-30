@@ -7,6 +7,9 @@ alias grep='grep --color'
 alias gitm='git commit -m'
 alias ngx-conf='cd /usr/local/openresty/nginx/conf/conf.d'
 alias tf='tail -f'
+alias s='. ~/.bash_profile'
+alias vim-profile='vim ~/.bash_profile && s'
+export GOPROXY=https://goproxy.io
 
 complete -W "$(echo $(cat ~/.ssh/config | grep -oP '^Host\s([a-z\.]+)' | sort -u | sed 's/^Host //'))" scp
 
